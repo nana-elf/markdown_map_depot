@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Conda安装教程</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body class="vscode-light">
+        <h1 id="conda%e5%ae%89%e8%a3%85%e6%95%99%e7%a8%8b">Conda安装教程</h1>
+<p>**# created by Qyl   2020/4/20 **</p>
+<h2 id="%e4%b8%80%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%ae%89%e8%a3%85conda">一、为什么要安装Conda</h2>
+<ol>
+<li>
+<p>更加安全的python及python包管理</p>
+<p>当我们在编写python程序时，我们不可避免的需要安装及导入不同的python包，而我们导入的python包后面又有一个复杂的包的依赖网络。</p>
+<p>同时，我们会面临多种多样的开发需求，数据科学、网络后端、爬虫等等，这导致我们需要安装的包可能是完全独立的开发路线，比如说我们在使用tensorflow时可能依赖的是numpy包的1.2.1版本，而在使用网站开发的django包时会依赖于numpy的1.1.1版本，这个时候就会出现冲突了。（这个例子完全虚假，没有根据，只是当作一个例子）</p>
+<p>而Conda引入了一个环境的概念，用户可以创建多个Conda环境，每个环境中都是完全的python环境，安装的包也是完全独立的，python的版本、包的版本也是可以完全不同的。用户可以在不同的环境中进行相对安全的python程序开发。</p>
+</li>
+<li>
+<p>更加方便的python包管理</p>
+<p>Conda为用户安装python包时，提供了更加全面的安装依赖，在你安装某一python包时，能够很好的帮你把此python包的依赖安装完全。p而python自带的pypi包管理器则会存在一些bug（个人经历，不下定论），但是pypi的包会包括一些个人开发者发布的python包，当你在用Conda安装时给你报找不到包的错误时，就拿pypi试一试吧。</p>
+</li>
+<li>
+<p>暂时还没想到更多。但是需要注意，Conda的环境中是有python的，所以当你</p>
+</li>
+</ol>
+<h2 id="%e4%ba%8c%e9%80%89%e6%8b%a9conda%e7%9a%84%e4%bb%80%e4%b9%88%e7%89%88%e6%9c%acanaconda-vs-miniconda">二、选择Conda的什么版本（Anaconda VS Miniconda）</h2>
+<p>两个版本都是Conda的发行版，同宗同源，在基础功能上没有任何区别。</p>
+<ol>
+<li>
+<p>Anaconda</p>
+<p>Anaconda版本，是Conda及一些常用的python开发会用到的包（pandas，numpy等）封装到一起的，当你安装及新建Conda环境时，就会为你预装这些包，方便开箱即用，同时还附带一个前端界面，你可以可视化的去管理python包及Conda环境。</p>
+<p>相应的，其体积大，安装慢、占内存、运行慢。</p>
+</li>
+<li>
+<p>更加方便的python包管理</p>
+<p>Miniconda版本，仅仅包括Conda及最基础的python环境，当你安装及新建Conda环境时，只会有一个可运行的python环境，其他的包则需要自己安装。</p>
+<p>相应的，其体积小，安装快，运行快。</p>
+</li>
+<li>
+<p>如果你不是很想秀你的电脑性能及内存，同时也不是那么需求一个前端环境，安装Miniconda是再好不过了。</p>
+</li>
+</ol>
+<h2 id="%e4%b8%89%e5%ae%89%e8%a3%85%e6%95%99%e7%a8%8b">三、安装教程</h2>
+<h3 id="windows">windows</h3>
+<ol>
+<li>
+<p>系统要求</p>
+<p>对于Miniconda 需要 400 MB磁盘空间。</p>
+<p>对于Anaconda 需要最小3 GB磁盘空间可下载和安装。</p>
+</li>
+<li>
+<p>下载安装包</p>
+<p>下载链接，下载很慢，可以使用迅雷下载：</p>
+<p>Anaconda官网：<a href="https://www.anaconda.com/">https://www.anaconda.com/</a></p>
+<p>Miniconda主页：<a href="https://conda.io/miniconda.html">https://conda.io/miniconda.html</a></p>
+</li>
+<li>
+<p>安装</p>
+<p>在windows下可以打开安装包，一直'下一步'就可以了，除了修改一下安装路径外，建议不用进行多余的配置。</p>
+</li>
+<li>
+<p>环境变量的配置</p>
+<p>安装完毕后，需要配置环境变量，让你在命令行输入和python运行时，系统能够找到你的Conda路径和Conda里的python路径。</p>
+<p>需要添加的环境变量为：</p>
+<pre><code> 注意修改安装路径
+ 1.安装路径（为了Python检查正常）:前面安装时路径一定要记清楚，默认是C:\ProgramData\Anaconda3
+ 或C:\ProgramData\Miniconda3
+
+ 2.安装路径\scripts（为了conda检查正常）:默认路径是C:\ProgramData\Anaconda3\Scripts
+ 或C:\ProgramData\Miniconda3\Scripts
+</code></pre>
+</li>
+<li>
+<p>安装完毕，可以打开cmd输入&quot;conda&quot;命令进行测试，可能会报需要进行conda init的提示，只需按照提示输入&quot;conda init&quot;即可。</p>
+</li>
+</ol>
+<h3 id="linux">Linux</h3>
+<ol>
+<li>
+<p>系统要求</p>
+<p>对于Miniconda 需要 400 MB磁盘空间。</p>
+<p>对于Anaconda 需要最小3 GB磁盘空间可下载和安装。</p>
+</li>
+<li>
+<p>下载安装包</p>
+<p>下载链接，在Linux里可以使用wget进行下载：</p>
+<pre><code> 输入
+ wget &lt;下载链接&gt;
+</code></pre>
+<p>下载链接可以通过官网获得</p>
+<p>Anaconda官网：<a href="https://www.anaconda.com/">https://www.anaconda.com/</a></p>
+<p>Miniconda主页：<a href="https://conda.io/miniconda.html">https://conda.io/miniconda.html</a></p>
+</li>
+<li>
+<p>安装</p>
+<pre><code> 获得文件权限并运行
+ chmod 777 文件名.sh
+ sh 文件.sh
+ 然后提示阅读用户许可协议，提示输入安装路径，可以直接默认，键入回车就行了，但是需要记下安装路径
+ 安装完毕后会提示是否进行conda init，选择yes就行了
+</code></pre>
+</li>
+<li>
+<p>环境变量的配置</p>
+<p>输入</p>
+<pre><code> export  PATH=&quot;安装路径/miniconda3/bin:&quot;$PATH
+</code></pre>
+</li>
+<li>
+<p>安装完毕，在命令输入&quot;conda&quot;命令进行测试</p>
+</li>
+</ol>
+<h2 id="%e5%9b%9b%e4%bf%ae%e6%94%b9%e9%95%9c%e5%83%8f%e6%ba%90">四、修改镜像源</h2>
+<ol>
+<li>
+<p>为什么要修改镜像源</p>
+<p>使用conda install 安装环境依赖时，经常会遇到网络超时，导致下载到一半的任务中断，有时这可能与网络环境有关。因此，可使用以下方法进行源切换。
+阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a>
+清华大学https://pypi.tuna.tsinghua.edu.cn/simple/</p>
+</li>
+<li>
+<p>windows / Linux</p>
+<pre><code> conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+ conda config --set show_channel_urls yes
+</code></pre>
+</li>
+<li>
+<p><strong>若在有些系统中没有获取管理管权限，2中的方法无法操作，各系统都可以通过修改用户目录下的 .condarc 文件。Windows 用户无法直接创建名为 .condarc 的文件，可先执行 conda config --set show_channel_urls yes 生成该文件之后再修改。安装清华镜像源参考https://mirrors.tuna.tsinghua.edu.cn/help/</strong></p>
+</li>
+</ol>
+<h2 id="%e4%ba%94%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8">五、基本使用</h2>
+<p>创建环境
+conda create --name your_env_name
+输入y确认创建。</p>
+<p>创建制定python版本的环境
+conda create --name your_env_name python=2.7
+conda create --name your_env_name python=3
+conda create --name your_env_name python=3.5</p>
+<p>创建包含某些包的环境
+conda create --name your_env_name numpy scipy</p>
+<p>创建指定python版本下包含某些包的环境
+conda create --name your_env_name python=3.5 numpy scipy</p>
+<p>列举当前所有环境
+conda info --envs or (conda info -e  # conda environments:)
+conda env list</p>
+<p>进入某个环境
+activate your_env_name</p>
+<p>退出当前环境
+deactivate</p>
+<p>复制某个环境
+conda create --name new_env_name --clone old_env_name</p>
+<p>删除某个环境
+conda remove --name your_env_name --all</p>
+
+    </body>
+    </html>
